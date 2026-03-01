@@ -3,22 +3,13 @@ import json
 
 with open("questions.json") as f:
     questions_data = json.load(f)
-with open("ranks.json") as f:
-    ranks_data = json.load(f)
 
 def setup_and_seed():
     # 1. Connect to SQLite (creates quiz.db if it doesn't exist)
     conn = sqlite3.connect('drdb.db')
     cursor = conn.cursor()
 
-    # 2. Create the table based on our finalized structure
-    cursor.execute('''
-        CREATE TABLE IF NOT EXISTS ranks (
-            rank_id INTEGER PRIMARY KEY AUTOINCREMENT,
-            rank_name TEXT UNIQUE NOT NULL,
-            xp_threshold INT NOT NULL
-        );
-    ''')
+    # 2. Create the table
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS users (
             username TEXT PRIMARY KEY,
@@ -27,8 +18,8 @@ def setup_and_seed():
             age INT,
             country TEXT,
             current_xp INT DEFAULT 0,
-            rank_id INT DEFAULT 1,
-            FOREIGN KEY (rank_id) REFERENCES ranks(rank_id)
+            tier TEXT DEFAULT 'bronze',
+            division INT DEFAULT 1
         );
     ''')
     cursor.execute('''
@@ -82,15 +73,6 @@ def setup_and_seed():
             item['question'], 
             options_string, 
             item['answer']
-        ))
-        
-    for item in ranks_data:
-        cursor.execute('''
-            INSERT INTO ranks (
-                rank_name, xp_threshold
-            ) VALUES (?, ?)
-        ''', (
-            item["rank_name"], item["xp_threshold"]
         ))
 
     # 5. Commit and close
