@@ -14,12 +14,12 @@ class DevRace:
             (38000, "legend", 1)
         ]
 
-    def check_user(self, username):
+    def retrieve_user(self, username):
         user_info = self.db.execute("SELECT * FROM users WHERE username=?;", (username.lower(),)).fetchone()
-        return bool(user_info)
+        return user_info
 
     def register_user(self, username, first_name, last_name, age, location):
-        if self.check_user(username):
+        if self.retrieve_user(username):
             print("User already exists!")
             return False
         try:
@@ -111,6 +111,43 @@ class DevRace:
         self.db.commit()
         return reset_report
     
+    def generate_question(self, username):
+        # 1. Get user tier
+        user_info = self.retrieve_user(username)
+        rank = user_info["tier"]
+
+        # 2. Get the actual names of the topics the user follows
+        cursor = self.db.execute("""
+            SELECT t.topic_name 
+            FROM topics t
+            JOIN users_topics ut ON t.topic_id = ut.topic_id
+            WHERE ut.username = ?
+        """, (username.lower(),))
+
+        # Flatten the list of tuples: [('frontend',), ('backend',)] -> ['frontend', 'backend']
+        topic_names = [row[0] for row in cursor.fetchall()]
+
+        # 3. Handle the "No Topics Selected"
+        if not topic_names:
+            # Show them everything from their tier
+            questions = self.db.execute(
+                "SELECT * FROM questions WHERE difficulty_tier = ? ORDER BY RANDOM() LIMIT 1", 
+                (rank,)
+            ).fetchone()
+        else:
+            # 4. Dynamic query to handle the list of topics
+            # We need to create a string like (?, ?, ?) based on the number of topics
+            placeholders = ', '.join(['?'] * len(topic_names))
+            query = f"""
+                SELECT * FROM questions 
+                WHERE category IN ({placeholders}) 
+                AND difficulty_tier = ? 
+                ORDER BY RANDOM() LIMIT 1
+            """
+            # We combine the topic list and the rank into one tuple for the execution
+            question = self.db.execute(query, (*topic_names, rank)).fetchone()
+        return question
+    
     def close_connection(self):
         try:
             self.db.close()
@@ -120,6 +157,5 @@ class DevRace:
 
 if __name__ == "__main__":
     a = DevRace()
-    a.global_season_reset()
-    status = a.update_xp("test", 10)
-    print(f"Update: {status}")
+    status = a.generate_question("test")
+    print(status)

@@ -1,8 +1,11 @@
 import sqlite3
 import json
 
+
 with open("questions.json") as f:
     questions_data = json.load(f)
+with open("topics.json") as f:
+    topics_data = json.load(f)
 
 def setup_and_seed():
     # 1. Connect to SQLite (creates quiz.db if it doesn't exist)
@@ -15,11 +18,11 @@ def setup_and_seed():
             username TEXT PRIMARY KEY,
             first_name TEXT,
             last_name TEXT,
-            age INT,
+            age INTEGER,
             country TEXT,
-            current_xp INT DEFAULT 0,
-            tier TEXT DEFAULT 'bronze',
-            division INT DEFAULT 1
+            current_xp INTEGER DEFAULT 0,
+            tier TEXT DEFAULT 'novice',
+            division INTEGER DEFAULT 1
         );
     ''')
     cursor.execute('''
@@ -27,9 +30,24 @@ def setup_and_seed():
             history_id INTEGER PRIMARY KEY AUTOINCREMENT,
             username TEXT,
             season_name TEXT,
-            final_rank_id INTEGER,
+            rank_name TEXT,
+            FOREIGN KEY (username) REFERENCES users(username)
+        );
+    ''')
+    # Created for storing user topic interests (not for questions)
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS topics (
+            topic_id INTEGER PRIMARY KEY AUTOINCREMENT,
+            topic_name TEXT UNIQUE
+        );
+    ''')
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS users_topics (
+            username TEXT NOT NULL,
+            topic_id INTEGER,
+            PRIMARY KEY (username, topic_id),
             FOREIGN KEY (username) REFERENCES users(username),
-            FOREIGN KEY (final_rank_id) REFERENCES ranks(rank_id)
+            FOREIGN KEY (topic_id) REFERENCES topics(topic_id)
         );
     ''')
     cursor.execute('''
@@ -49,12 +67,20 @@ def setup_and_seed():
     cursor.execute("DELETE FROM questions")
 
     cursor.execute('''
-        INSERT INTO users (
+        INSERT OR IGNORE INTO users (
             username, first_name, last_name, 
             age, country) 
             VALUES (?, ?, ?, ?, ?)
         ''', ("test", "abc", "xyz", 18, "india")
     )
+    
+    interests = [1, 2, 7]
+    for interest in interests:
+        cursor.execute('''
+            INSERT OR IGNORE INTO users_topics (username, topic_id) 
+            VALUES (?, ?)
+            ''', ("test", interest)
+        )
 
     # 4. Insert the data
     for item in questions_data:
@@ -73,6 +99,13 @@ def setup_and_seed():
             item['question'], 
             options_string, 
             item['answer']
+        ))
+
+    for item in topics_data:
+        cursor.execute('''
+            INSERT OR IGNORE INTO topics (topic_name) VALUES (?)
+        ''', (
+            item['name'],
         ))
 
     # 5. Commit and close

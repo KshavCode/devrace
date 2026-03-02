@@ -2,7 +2,7 @@
   {
     "category": "frontend",
     "subcategory": "html",
-    "difficulty": "bronze",
+    "difficulty": "novice",
     "question": "which tag is used to define the largest heading?",
     "options": ["<heading>", "<h1>", "<head>", "<h6>"],
     "answer": "<h1>"
@@ -10,7 +10,7 @@
   {
     "category": "frontend",
     "subcategory": "html",
-    "difficulty": "bronze",
+    "difficulty": "novice",
     "question": "which tag creates a line break?",
     "options": ["<lb>", "<br>", "<break>", "<newline>"],
     "answer": "<br>"
@@ -18,7 +18,7 @@
   {
     "category": "frontend",
     "subcategory": "html",
-    "difficulty": "bronze",
+    "difficulty": "novice",
     "question": "which tag is used to create a hyperlink?",
     "options": ["<link>", "<a>", "<href>", "url"],
     "answer": "<a>"
@@ -26,7 +26,7 @@
   {
     "category": "frontend",
     "subcategory": "html",
-    "difficulty": "bronze",
+    "difficulty": "novice",
     "question": "what does html stand for?",
     "options": ["hyperlink text markup language", "hyper tool multi language", "hypertext markup language", "high tech modern language"],
     "answer": "hypertext markup language"
@@ -34,7 +34,7 @@
   {
     "category": "frontend",
     "subcategory": "css",
-    "difficulty": "bronze",
+    "difficulty": "novice",
     "question": "which property is used to change the background color?",
     "options": ["color", "bgcolor", "background-color", "fill"],
     "answer": "background-color"
@@ -42,7 +42,7 @@
   {
     "category": "frontend",
     "subcategory": "javascript",
-    "difficulty": "bronze",
+    "difficulty": "novice",
     "question": "which keyword is used to declare a constant variable?",
     "options": ["var", "let", "constant", "const"],
     "answer": "const"
@@ -50,7 +50,7 @@
   {
     "category": "backend",
     "subcategory": "python",
-    "difficulty": "bronze",
+    "difficulty": "novice",
     "question": "how do you start a for loop in python?",
     "options": ["for i in range(10):", "for (i=0; i<10; i++)", "foreach i in list", "loop i to 10"],
     "answer": "for i in range(10):"
@@ -58,7 +58,7 @@
   {
     "category": "backend",
     "subcategory": "python",
-    "difficulty": "bronze",
+    "difficulty": "novice",
     "question": "which function is used to get the length of a list in python?",
     "options": ["count()", "length()", "size()", "len()"],
     "answer": "len()"
@@ -66,7 +66,7 @@
   {
     "category": "general cs",
     "subcategory": "git",
-    "difficulty": "bronze",
+    "difficulty": "novice",
     "question": "which command is used to copy a repository from github to your local machine?",
     "options": ["git push", "git pull", "git clone", "git fork"],
     "answer": "git clone"
@@ -74,7 +74,7 @@
   {
     "category": "backend",
     "subcategory": "sql",
-    "difficulty": "bronze",
+    "difficulty": "novice",
     "question": "which command is used to retrieve data from a database?",
     "options": ["get", "extract", "select", "open"],
     "answer": "select"
@@ -82,7 +82,7 @@
   {
     "category": "frontend",
     "subcategory": "html",
-    "difficulty": "bronze",
+    "difficulty": "novice",
     "question": "which tag is used for the smallest heading?",
     "options": ["<h1>", "<h6>", "<head>", "<small>"],
     "answer": "<h6>"
@@ -90,7 +90,7 @@
   {
     "category": "frontend",
     "subcategory": "css",
-    "difficulty": "bronze",
+    "difficulty": "novice",
     "question": "how do you select an element with id 'header' in css?",
     "options": [".header", "#header", "header", "*header"],
     "answer": "#header"
@@ -98,7 +98,7 @@
   {
     "category": "backend",
     "subcategory": "javascript",
-    "difficulty": "bronze",
+    "difficulty": "novice",
     "question": "what is the result of 2 + '2' in javascript?",
     "options": ["4", "22", "undefined", "nan"],
     "answer": "22"
@@ -106,7 +106,7 @@
   {
     "category": "general cs",
     "subcategory": "basics",
-    "difficulty": "bronze",
+    "difficulty": "novice",
     "question": "what does api stand for?",
     "options": ["application programming interface", "automated protocol integration", "app process indicator", "applied python instruction"],
     "answer": "application programming interface"
@@ -114,7 +114,7 @@
   {
     "category": "backend",
     "subcategory": "python",
-    "difficulty": "bronze",
+    "difficulty": "novice",
     "question": "which data type is used to store true or false values?",
     "options": ["string", "int", "boolean", "float"],
     "answer": "boolean"
@@ -122,7 +122,7 @@
   {
     "category": "frontend",
     "subcategory": "html",
-    "difficulty": "bronze",
+    "difficulty": "novice",
     "question": "which tag is used to create an unordered list?",
     "options": ["<ol>", "<li>", "<ul>", "<list>"],
     "answer": "<ul>"
@@ -130,7 +130,7 @@
   {
     "category": "frontend",
     "subcategory": "css",
-    "difficulty": "bronze",
+    "difficulty": "novice",
     "question": "which property changes the text color in css?",
     "options": ["text-color", "font-style", "color", "background"],
     "answer": "color"
@@ -138,7 +138,7 @@
   {
     "category": "backend",
     "subcategory": "sql",
-    "difficulty": "bronze",
+    "difficulty": "novice",
     "question": "which keyword is used to sort the result-set?",
     "options": ["sort by", "order by", "group by", "arrange"],
     "answer": "order by"
@@ -146,7 +146,7 @@
   {
     "category": "general cs",
     "subcategory": "git",
-    "difficulty": "bronze",
+    "difficulty": "novice",
     "question": "which command saves changes to the local repository history?",
     "options": ["git add", "git commit", "git save", "git upload"],
     "answer": "git commit"
@@ -154,7 +154,7 @@
   {
     "category": "backend",
     "subcategory": "python",
-    "difficulty": "bronze",
+    "difficulty": "novice",
     "question": "how do you create a function in python?",
     "options": ["function myfunc():", "create myfunc():", "def myfunc():", "new func():"],
     "answer": "def myfunc():"
@@ -162,7 +162,7 @@
   {
     "category": "frontend",
     "subcategory": "javascript",
-    "difficulty": "bronze",
+    "difficulty": "novice",
     "question": "which method is used to write text into the browser console?",
     "options": ["console.print()", "console.log()", "console.write()", "print()"],
     "answer": "console.log()"
@@ -170,7 +170,7 @@
   {
     "category": "frontend",
     "subcategory": "html",
-    "difficulty": "bronze",
+    "difficulty": "novice",
     "question": "which tag is used for an image?",
     "options": ["<pic>", "<img>", "<image>", "<src>"],
     "answer": "<img>"
@@ -178,7 +178,7 @@
   {
     "category": "backend",
     "subcategory": "sql",
-    "difficulty": "bronze",
+    "difficulty": "novice",
     "question": "what does sql stand for?",
     "options": ["structured query language", "simple query logic", "standard query list", "system quick link"],
     "answer": "structured query language"
@@ -186,7 +186,7 @@
   {
     "category": "general cs",
     "subcategory": "basics",
-    "difficulty": "bronze",
+    "difficulty": "novice",
     "question": "what is the default port for http?",
     "options": ["443", "21", "80", "8080"],
     "answer": "80"
@@ -194,7 +194,7 @@
   {
     "category": "frontend",
     "subcategory": "css",
-    "difficulty": "bronze",
+    "difficulty": "novice",
     "question": "which property is used to make text bold?",
     "options": ["font-style", "text-decoration", "font-weight", "bold-text"],
     "answer": "font-weight"
@@ -202,7 +202,7 @@
   {
     "category": "backend",
     "subcategory": "python",
-    "difficulty": "bronze",
+    "difficulty": "novice",
     "question": "which of these is a valid list in python?",
     "options": ["(1, 2, 3)", "{1, 2, 3}", "[1, 2, 3]", "<1, 2, 3>"],
     "answer": "[1, 2, 3]"
@@ -210,7 +210,7 @@
   {
     "category": "general cs",
     "subcategory": "git",
-    "difficulty": "bronze",
+    "difficulty": "novice",
     "question": "which command is used to stage changes for a commit?",
     "options": ["git stage", "git add", "git push", "git ready"],
     "answer": "git add"

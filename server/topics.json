@@ -1,0 +1,21 @@
+[
+  {"name": "frontend", "description": "html, css, javascript and frameworks"},
+  {"name": "backend", "description": "python, nodejs, databases and apis"},
+  {"name": "devops", "description": "git, docker, and deployment"},
+  {"name": "mobile", "description": "react native and android/ios basics"},
+  {"name": "html", "description":"."},
+  {"name": "bash", "description":"."},
+  {"name": "git", "description":"."},
+  {"name": "css", "description":"."},
+  {"name": "python", "description":"."},
+  {"name": "c++", "description":"."},
+  {"name": "javascript", "description":"."},
+  {"name": "java", "description":"."},
+  {"name": "c#", "description":"."},
+  {"name": "pandas", "description":"."},
+  {"name": "sql", "description":"."},
+  {"name": "tailwindcss", "description":"."},
+  {"name": "react-native", "description":"."},
+  {"name": "react-js", "description":"."},
+  {"name": "angular-js", "description":"."}
+]
