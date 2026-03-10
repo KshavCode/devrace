@@ -228,7 +228,7 @@ if __name__ == "__main__":
                     new_country = questionary.text("Country:", default=str(user['country']).title()).ask()
                     
                     if obj.edit_user(username, new_fn, new_ln, new_age, new_country):
-                        console.print("[bold green]Profile updated pakka! Superb.[/bold green]\n")
+                        console.print("[bold green]Profile updated! Superb.[/bold green]\n")
                     else:
                         console.print("[bold red]Aiyo, something went wrong saving your details.[/bold red]\n")
                     time.sleep(1)
